@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+    <br>
+    <div>
+        <mat-form-field>
+            <mat-label>Nombre del trabajo</mat-label>
+            <input matInput formControlName="nombre" #message maxlength="200" placeholder="Name">
+            <mat-hint align="end">{{message.value.length}} / 200</mat-hint>
+        </mat-form-field>
+
+    </div>
+    <br>
+    <div>
+        <button [disabled]="!form.valid" (click)='clickenviar()' mat-fab color="primary">
+            <mat-icon>send</mat-icon>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,47 @@
+<form [formGroup]="form">
+  <br>
+  <div>
+    <mat-form-field color="accent" appearance="fill">
+      <mat-label>Inherited calendar color</mat-label>
+      <input matInput formControlName="fechaInicio" [matDatepicker]="picker1">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field color="accent" appearance="fill">
+      <mat-label>Custom calendar color</mat-label>
+      <input matInput formControlName="fechaFin" [matDatepicker]="picker2">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2 color="primary"></mat-datepicker>
+    </mat-form-field>
+
+  </div>
+
+  <div>
+    <h4>Codigo</h4>
+    <mat-form-field appearance="fill">
+      <mat-select [(ngModel)]="variable2" formControlName="titCodigo">
+        <mat-option [value]="p.codigo" *ngFor="let p of lstPercodigo"> {{p.nombre}} </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p> Selected code: {{variable2}} </p>
+
+  </div>
+  <div>
+    <h4>Codigo</h4>
+    <mat-form-field appearance="fill">
+      <mat-select [(ngModel)]="variable" formControlName="perCodigo">
+        <mat-option [value]="p.codigo" *ngFor="let p of lstTitcodigo"> {{p.nombre}} </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <p> Selected code: {{variable}} </p>
+
+  </div>
+  <br>
+  <div>
+    <button [disabled]="!form.valid" (click)='clickenviar()' mat-fab color="primary">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+</form>
