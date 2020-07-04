@@ -25,6 +25,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { ViewTrabajoComponent } from './page/view-trabajo/view-trabajo.component';
 import { ViewExperienciaLaboralComponent } from './page/view-experiencia-laboral/view-experiencia-laboral.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -56,8 +58,9 @@ import { ViewExperienciaLaboralComponent } from './page/view-experiencia-laboral
     MatSelectModule,
     MatStepperModule,
     MatTableModule,
-    MatPaginatorModule
-    
+    MatPaginatorModule,
+    HttpClientModule,
+
 
   ],
   providers: [],
