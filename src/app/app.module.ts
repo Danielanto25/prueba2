@@ -24,9 +24,10 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { ViewTrabajoComponent } from './page/view-trabajo/view-trabajo.component';
 import { ViewExperienciaLaboralComponent } from './page/view-experiencia-laboral/view-experiencia-laboral.component';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 import { HttpClientModule } from '@angular/common/http';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -60,10 +61,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatPaginatorModule,
     HttpClientModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot(),
+    
 
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

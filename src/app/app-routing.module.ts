@@ -47,6 +47,10 @@ const routes: Routes = [
     component:ViewTrabajoComponent
   },
   {
+    path:'reporte',
+    loadChildren:()=> import('./page/reporte/reporte.module').then(m=>m.ReporteModule)
+  },
+  {
     path: '**', redirectTo: '404-not-found'
   }
 

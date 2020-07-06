@@ -1,5 +1,5 @@
 <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="expl">
 
         <!-- Position Column -->
         <ng-container matColumnDef="codigo">
@@ -8,24 +8,24 @@
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="nombre">
+        <ng-container matColumnDef="fechaInicio">
             <th mat-header-cell *matHeaderCellDef> Fecha de Inicio </th>
             <td mat-cell *matCellDef="let element"> {{element.fechaInicio}} </td>
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="apellido">
+        <ng-container matColumnDef="fechaFin">
             <th mat-header-cell *matHeaderCellDef> Fecha de Finalizacion </th>
             <td mat-cell *matCellDef="let element"> {{element.fechaFin}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
-        <ng-container matColumnDef="identificacion">
+        <ng-container matColumnDef="titCodigo">
             <th mat-header-cell *matHeaderCellDef> TitCodigo </th>
             <td mat-cell *matCellDef="let element"> {{element.titCodigo}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="edad">
+        <ng-container matColumnDef="perCodigo">
             <th mat-header-cell *matHeaderCellDef> PerCodigo </th>
             <td mat-cell *matCellDef="let element"> {{element.perCodigo}} </td>
         </ng-container>
