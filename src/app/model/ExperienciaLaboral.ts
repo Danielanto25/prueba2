@@ -1,5 +1,5 @@
 export class ExperienciaLaboral{
-    codigoi:number;
+    codigo:number;
     fechaInicio:string;
     fechaFin:string;
     perCodigo:number;

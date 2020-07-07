@@ -62,7 +62,7 @@ export class PersonaComponent implements OnInit {
     persona.fechaNacimiento = this.form.get('fechaNacimiento').value;
     persona.codigo = this.form.get('codigo').value;
 
-    if (!this.editar) {  
+    if (!this.editar) {
 
       this.registrar(persona);
 
@@ -72,7 +72,7 @@ export class PersonaComponent implements OnInit {
 
     }
   }
-  private registrar(persona:Persona):void{
+  private registrar(persona: Persona): void {
     this.personaService.crear(persona).subscribe(data => {
 
       this.spinner.hide();
@@ -80,7 +80,7 @@ export class PersonaComponent implements OnInit {
       if (data.codigo == 1) {
         this.toastr.success(data.respuesta);
         this.form.reset();
-        
+
         this.buscarPersona();
       } else {
         this.toastr.warning(data.respuesta);
@@ -91,9 +91,15 @@ export class PersonaComponent implements OnInit {
   private actualizar(persona: Persona): void {
     this.personaService.editar(persona).subscribe(data => {
       this.spinner.hide();
-      this.buscarPersona();
-      this.editar=false;
-      this.form.reset();
+
+      if (data.codigo == 2) {
+        this.toastr.success(data.respuesta);
+        this.form.reset();
+
+        this.buscarPersona();
+      } else {
+        this.toastr.warning(data.respuesta);
+      }
     }, err => this.mensajeError(err));
   }
 
@@ -125,5 +131,21 @@ export class PersonaComponent implements OnInit {
   onCancelar(): void {
     this.form.reset();
     this.editar = false;
+  }
+
+  onEliminar(): void {
+    this.spinner.show();
+    this.personaService.eliminar(this.form.get('codigo').value).subscribe(data => {
+      this.spinner.hide();
+
+      if (data.codigo == 1) {
+        this.toastr.success(data.respuesta);
+        this.form.reset();
+        this.editar=false;
+        this.buscarPersona();
+      } else {
+        this.toastr.warning(data.respuesta);
+      }
+    }, err => this.mensajeError(err));
   }
 }

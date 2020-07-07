@@ -23,7 +23,10 @@ export class PersonaService {
     return this.http.post<RespuestaServidor>(`${this.url}/crear`,persona);
   }
 
-  editar(persona:Persona):Observable<null>{
-    return this.http.put<null>(`${this.url}/update`,persona)
+  editar(persona:Persona):Observable<RespuestaServidor>{
+    return this.http.put<RespuestaServidor>(`${this.url}/update`,persona)
+  }
+  eliminar(codigo:number):Observable<RespuestaServidor>{
+    return this.http.delete<RespuestaServidor>(`${this.url}/eliminar/${codigo}`);
   }
 }
