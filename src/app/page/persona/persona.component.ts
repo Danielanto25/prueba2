@@ -92,7 +92,7 @@ export class PersonaComponent implements OnInit {
     this.personaService.editar(persona).subscribe(data => {
       this.spinner.hide();
 
-      if (data.codigo == 2) {
+      if (data.codigo == 1) {
         this.toastr.success(data.respuesta);
         this.form.reset();
 

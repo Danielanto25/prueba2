@@ -74,7 +74,7 @@ export class TipoTrabajoComponent implements OnInit {
   private actualizar(tipoTrabajo: TipoTrabajo) {
     this.trabajoservice.modificar(tipoTrabajo).subscribe(data => {
       this.spinner.hide();
-      if (data.codigo == 2) {
+      if (data.codigo == 1) {
         this.listar();
         this.form.reset();
         this.toastr.success(data.respuesta)
@@ -111,7 +111,7 @@ export class TipoTrabajoComponent implements OnInit {
 
       this.spinner.hide();
 
-      if (data.codigo == 2) {
+      if (data.codigo == 1) {
         this.toastr.success(data.respuesta);
         this.form.reset();
 
